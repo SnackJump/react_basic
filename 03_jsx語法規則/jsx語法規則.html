@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>jsx語法規則</title>
+    <style>
+        .title{
+            background-color: orange;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <!-- 準備好一個容器 -->
@@ -16,24 +22,24 @@
     <script type="text/javascript" src="../js/babel.min.js"></script>
 
     <script type="text/babel"> /* 以下寫jsx語法(所以一定要用text/babel) */
+        const myId = 'AtGuiGu'
+        const myData = 'HeLlo,rEaCt'
         // 1. 創建虛擬DOM
         const VDOM = (
-            <h1 id="title">
-                <span>Hello, React</span>
-            </h1>
+            <div>
+                <h1 className="title" id={myId.toLocaleLowerCase()}>
+                    <span style={{color: 'white', fontSize: '29px'}}>{myData.toLocaleLowerCase()}</span>
+                </h1>
+                <h1 className="title" id={myId.toLocaleUpperCase()}>
+                    <span style={{color: 'red', fontSize: '29px'}}>{myData.toLocaleLowerCase()}</span>
+                </h1>
+                <input type="text"/>
+                <Good>111</Good>
+            </div>
         ) /* 此處一定不要寫引號，因為不是字符號 */
 
         // 2. 渲染虛擬DOM到頁面
         ReactDOM.render(VDOM, document.getElementById('test'))
-
-		console.log('虛擬DOM',VDOM);
-		console.log(typeof VDOM);
-		console.log(VDOM instanceof Object);
-		
-		const TDOM = document.getElementById('test')
-		console.log('真實DOM', TDOM);
-
-		debugger;
     </script>
 
 </body>
