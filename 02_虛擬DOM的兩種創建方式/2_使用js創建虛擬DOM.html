@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_使用js創建虛擬DOM</title>
+</head>
+<body>
+    <!-- 準備好一個容器 -->
+    <div id="test"></div>
+
+    <!-- 引入react核心庫 (這要先引入) -->
+    <script type="text/javascript" src="../js/react.development.js"> </script>
+    <!-- 引入 react-dom 用於支持 react操作DOM -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+        // 1. 創建虛擬DOM， React.createElement(標籤名稱,標籤屬性,標籤內容)
+        const VDOM = React.createElement('h1',{id:'title'},React.createElement('span',{},'Hello,React'))
+
+        // 2. 渲染虛擬DOM到頁面
+        ReactDOM.render(VDOM, document.getElementById('test'))
+        
+    </script>
+
+</body>
+</html>
