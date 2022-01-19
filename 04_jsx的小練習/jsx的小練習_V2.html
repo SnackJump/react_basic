@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx的小練習_V2</title>
+</head>
+<body>
+    <!-- 準備好一個容器 -->
+    <div id="test"></div>
+
+    <!-- 引入react核心庫 (這要先引入) -->
+    <script type="text/javascript" src="../js/react.development.js"> </script>
+    <!-- 引入 react-dom 用於支持 react操作DOM -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入 batel 用於將jsx轉為js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel"> /* 以下寫jsx語法(所以一定要用text/babel) */
+        /*
+            一定注意區分：【js語句(代碼)】與【js表達式】
+                1. 表達式：一個表達式會產生一個值，可以放在任何一個需要值的地方
+                    下面這些都是表達式：
+                        (1). a   // 一個變數
+                        (2). a+b
+                        (3). demo(1)   // 調用函式
+                        (4). arr.map()
+                        (5). function test() {}  // 定義一個函式
+                2. 語句(代碼)
+                    下面這些都是語句(代碼)：
+                        (1). if(){}
+                        (2). for(){}
+                        (3). switch(){case:XXX}
+        */
+
+        // 模擬一些數據
+        const data = ['Angular','React','Vue']
+
+        // key 要唯一
+
+        // 1. 創建虛擬DOM
+        const VDOM = (
+            <div>
+                <h1>前端js框架列表</h1>
+                <ul>
+                    {
+                        data.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+        ) /* 此處一定不要寫引號，因為不是字符號 */
+
+        // 2. 渲染虛擬DOM到頁面
+        ReactDOM.render(VDOM, document.getElementById('test'))
+    </script>
+
+</body>
+</html>

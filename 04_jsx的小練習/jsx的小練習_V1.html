@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>jsx的小練習</title>
+    <title>jsx的小練習_V1</title>
 </head>
 <body>
     <!-- 準備好一個容器 -->
@@ -16,13 +16,16 @@
     <script type="text/javascript" src="../js/babel.min.js"></script>
 
     <script type="text/babel"> /* 以下寫jsx語法(所以一定要用text/babel) */
-        const myId = 'AtGuiGu'
-        const myData = 'HeLlo,rEaCt'
         // 1. 創建虛擬DOM
         const VDOM = (
-            <h1 id={myId.toLocaleLowerCase()}>
-                <span>{myData.toLocaleLowerCase()}</span>
-            </h1>
+            <div>
+                <h1>前端js框架列表</h1>
+                <ul>
+                    <li>Angular</li>
+                    <li>React</li>
+                    <li>Vue</li>
+                </ul>
+            </div>
         ) /* 此處一定不要寫引號，因為不是字符號 */
 
         // 2. 渲染虛擬DOM到頁面
