@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_state</title>
+    <!-- 參考：https://www.youtube.com/watch?v=69HdvYsZA0Y&list=PLmOn9nNkQxJFJXLvkNsGsoCUxJLqyLGxu&index=13 -->
+</head>
+<body>
+    <!-- 準備好一個容器 -->
+    <div id="test"></div>
+    
+    <!-- 引入react核心庫 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom用於支持react操作DOM -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入batel用於將jsx轉為js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        // 1. 創建組件
+        class Weather extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {isHot:false};
+            }
+            
+            render(){
+                console.log(this);
+                const {isHot} = this.state
+                return <h1>今天天氣很{isHot ? '炎熱' : '涼爽'}</h1>
+            }
+        }
+        // 2. 渲染組件到頁面
+        ReactDOM.render(<Weather/>, document.getElementById('test'))
+    </script>
+</body>
+</html>
